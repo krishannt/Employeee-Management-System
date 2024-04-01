@@ -97,28 +97,39 @@ public class EmployeeService {
 			System.out.println("Employee deleted successfully!!");
 		}
 	}
+	
 	//add emp
 	public void addEmp() {
-		System.out.println("Enter id:");
-		id=sc.nextInt();
-		System.out.println("Enter name");
-		name=sc.next();
-		System.out.println("Enter age");
-		age=sc.nextInt();
-		System.out.println("enter Desiganation");
-		desiganation=sc.next();
-		System.out.println("Enter Department");
-		department=sc.next();
-		System.out.println("Enter sal");
-		sc.nextDouble();
-		
-		Employee emp=new Employee(id, name, age, desiganation, department, sal);
-		
-		empset.add(emp);
-		System.out.println(emp);
-		System.out.println("Employtee addeed successsfully");
-		
-	}
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter employee details:");
+        System.out.print("ID: ");
+        int id = scanner.nextInt();
+        
+        // Check if employee ID already exists
+        for (Employee employee : empset) {
+            if (employee.getId() == id) {
+                System.out.println("Employee with ID " + id + " already exists.");
+                return;
+            }
+        }
+        
+        scanner.nextLine(); 
+        System.out.print("Name: ");
+        String name = scanner.nextLine();
+        System.out.print("Age: ");
+        int age = scanner.nextInt();
+        scanner.nextLine(); 
+        System.out.print("Designation: ");
+        String designation = scanner.nextLine();
+        System.out.print("Department: ");
+        String department = scanner.nextLine();
+        System.out.print("Salary: ");
+        double salary = scanner.nextDouble();
+
+        Employee employee = new Employee(id, name, age, designation, department, salary);
+        empset.add(employee);
+        System.out.println("Employee added successfully.");
+    }
 	
 	}
 
