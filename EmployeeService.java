@@ -102,7 +102,7 @@ public class EmployeeService {
 		System.out.println("Enter id:");
 		id=sc.nextInt();
 		System.out.println("Enter name");
-		name=sc.next();
+		name=sc.nextLine();
 		System.out.println("Enter age");
 		age=sc.nextInt();
 		System.out.println("enter Desiganation");
